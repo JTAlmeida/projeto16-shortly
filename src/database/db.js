@@ -6,7 +6,10 @@ const { Pool } = pg;
 
 let connection;
 try {
-  connection = new Pool({ connectionString: process.env.DATABASE_URL });
+  connection = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
+  });
 } catch (error) {
   console.error(`Error "${error}" while trying to connect to database.`);
 }
