@@ -30,8 +30,34 @@ export async function signUp(req, res) {
 
 export async function signIn(req, res) {
   const { email, password } = req.body;
-    
+
   try {
+    const checkUser = await connection.query(
+      `SELECT * FROM users WHERE email = $1;`,
+      [email]
+    );
+
+    if (checkUser.rowCount === 0) {
+      return res.status(401).send({ message: "Invalid user or password." });
+    }
+
+    const user = checkUser.rows[0];
+
+    if (!bcrypt.compareSync(password, user.password)) {
+      return res.status(401).send({ message: "Invalid user or password." });
+    }
+
+    await connection.query(`DELETE FROM "sessions" WHERE "userId" = $1;`, [
+      user.id,
+    ]);
+
+    const token = uuid();
+    await connection.query(
+      `INSERT INTO "sessions" (token, "userId") VALUES ($1, $2);`,
+      [token, user.id]
+    );
+
+    return res.status(200).send({ token });
   } catch (error) {
     return res.status(500).send({ error: error.message });
   }
