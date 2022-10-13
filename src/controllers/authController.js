@@ -29,7 +29,7 @@ export async function signUp(req, res) {
 }
 
 export async function signIn(req, res) {
-  const { name, email, password } = req.body;
+  const { email, password } = req.body;
     
   try {
   } catch (error) {
