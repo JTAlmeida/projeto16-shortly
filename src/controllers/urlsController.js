@@ -50,7 +50,7 @@ export async function openUrl(req, res) {
     );
 
     if (checkUrl.rowCount === 0) {
-      return res.status(404).send({ message: "Url not found." });
+      return res.status(404).send({ message: "Url not found!" });
     }
     const thisUrl = checkUrl.rows[0];
 
@@ -59,6 +59,7 @@ export async function openUrl(req, res) {
       [thisUrl.id]
     );
 
+    console.log(thisUrl.url);
     return res.redirect(thisUrl.url);
   } catch (error) {
     return res.status(500).send({ error: error.message });
@@ -66,7 +67,26 @@ export async function openUrl(req, res) {
 }
 
 export async function deleteUrl(req, res) {
+  const { id } = req.params;
+  const { user } = res.locals;
+
   try {
+    const checkUrl = await connection.query(
+      `SELECT * FROM urls WHERE id = $1;`,
+      [id]
+    );
+
+    if (checkUrl.rowCount === 0) {
+      return res.status(404).send({ message: "Url not found!" });
+    }
+
+    if (checkUrl.rows[0].userId !== user.id) {
+      return res.status(401).send({ message: "This user isn't authorized!" });
+    }
+
+    await connection.query(`DELETE FROM urls WHERE id = $1;`, [id]);
+
+    return res.status(204).send({ message: "Url successfully deleted." });
   } catch (error) {
     return res.status(500).send({ error: error.message });
   }
