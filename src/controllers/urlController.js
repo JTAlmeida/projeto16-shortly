@@ -59,7 +59,6 @@ export async function openUrl(req, res) {
       [thisUrl.id]
     );
 
-    console.log(thisUrl.url);
     return res.redirect(thisUrl.url);
   } catch (error) {
     return res.status(500).send({ error: error.message });
