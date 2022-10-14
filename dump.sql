@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 14.5 (Ubuntu 14.5-1.pgdg20.04+1)
+-- Dumped from database version 14.5
 -- Dumped by pg_dump version 14.5
 
 SET statement_timeout = 0;
@@ -15,13 +15,6 @@ SET check_function_bodies = false;
 SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
-
---
--- Name: heroku_ext; Type: SCHEMA; Schema: -; Owner: -
---
-
-CREATE SCHEMA heroku_ext;
-
 
 SET default_tablespace = '';
 
@@ -151,52 +144,54 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO public.sessions VALUES (2, 1, 'd25bcc3a-7d34-4f59-a4d3-43594e04e7f9', '2022-10-14 12:28:23.083347');
-INSERT INTO public.sessions VALUES (3, 3, '43af50a1-835d-47af-808d-343d06220b21', '2022-10-14 14:22:57.994878');
+INSERT INTO public.sessions VALUES (7, 1, 'c5cabdd4-9666-4cd2-bc93-c76c0b07969f', '2022-10-13 13:52:35.356993');
+INSERT INTO public.sessions VALUES (8, 2, '86f15b78-3288-43fc-a763-4f4569fe932f', '2022-10-14 11:00:32.229332');
 
 
 --
 -- Data for Name: urls; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO public.urls VALUES (1, 1, 'https://google.com', 'E201nU_R', 3, '2022-10-14 12:29:50.317643');
-INSERT INTO public.urls VALUES (2, 1, 'https://google.com', 'iCF5gW4C', 0, '2022-10-14 14:20:13.614899');
-INSERT INTO public.urls VALUES (3, 1, 'https://google.com', 'w2U7dLQO', 0, '2022-10-14 14:20:14.816193');
-INSERT INTO public.urls VALUES (4, 1, 'https://google.com', 'ybfODwtY', 0, '2022-10-14 14:20:15.633183');
-INSERT INTO public.urls VALUES (5, 1, 'https://google.com', 'yuK9awne', 0, '2022-10-14 14:20:16.651134');
-INSERT INTO public.urls VALUES (6, 1, 'https://facebook.com', 'ipYRWPjh', 4, '2022-10-14 14:20:41.779991');
-INSERT INTO public.urls VALUES (7, 3, 'https://facebook.com', 'DmRHW-pK', 3, '2022-10-14 14:23:39.369782');
-INSERT INTO public.urls VALUES (8, 3, 'https://google.com', 'b7OQUcIG', 7, '2022-10-14 14:23:48.238743');
+INSERT INTO public.urls VALUES (1, 1, 'https://google.com', 'Wqhtdujp', 2, '2022-10-13 14:04:32.073436');
+INSERT INTO public.urls VALUES (9, 1, 'https://facebook.com', 'Etg9KcZT', 0, '2022-10-14 10:15:57.937215');
+INSERT INTO public.urls VALUES (10, 1, 'https://facebook.com', 'AiT5ZlCj', 0, '2022-10-14 10:15:58.472069');
+INSERT INTO public.urls VALUES (7, 1, 'https://facebook.com', 'x5JQgWzo', 2, '2022-10-14 10:08:22.439825');
+INSERT INTO public.urls VALUES (8, 1, 'https://facebook.com', '9kZivg-M', 5, '2022-10-14 10:15:56.747898');
+INSERT INTO public.urls VALUES (12, 2, 'https://google.com', '4LXmRYB9', 0, '2022-10-14 11:00:55.748735');
+INSERT INTO public.urls VALUES (13, 2, 'https://google.com', 'F-hwDzVa', 0, '2022-10-14 11:00:56.140632');
+INSERT INTO public.urls VALUES (14, 2, 'https://google.com', 'T-RP0BlV', 0, '2022-10-14 11:00:56.412375');
+INSERT INTO public.urls VALUES (15, 2, 'https://google.com', 'WC_NjDwH', 0, '2022-10-14 11:00:56.652062');
+INSERT INTO public.urls VALUES (16, 2, 'https://google.com', '8pOavagc', 0, '2022-10-14 11:00:56.931462');
+INSERT INTO public.urls VALUES (11, 2, 'https://google.com', 'nIY1uSjK', 3, '2022-10-14 11:00:55.038272');
 
 
 --
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO public.users VALUES (1, 'teste', 'teste@teste.com', '$2b$10$b1IIn1SsITRs0sXbCeSqUuIodtN9LTeARuUJqEmV7ClOzpaJmtNcy', '2022-10-14 12:26:58.811051');
-INSERT INTO public.users VALUES (2, 'teste', 'testa@teste.com', '$2b$10$biyJ5gA1wwYnbCGIxfHnMOEjKJw0ULSIjvNwyBKzK5vngQyY4guBK', '2022-10-14 12:27:42.951254');
-INSERT INTO public.users VALUES (3, 'testeFinal', 'testefinal@testefinal.com', '$2b$10$eoar5PardjZPrw8pQW1ffON6/uHPIqVDJzHDtdtShvO/LrtJq4vKm', '2022-10-14 14:22:49.331922');
+INSERT INTO public.users VALUES (1, 'teste', 'teste@teste.com', '$2b$10$c3yEqNkRAudKArOumXlMVeEYaqie6tk3n2w84XipeeRCY0CSgv4Za', '2022-10-13 09:09:53.733043');
+INSERT INTO public.users VALUES (2, 'teste2', 'teste2@teste2.com', '$2b$10$sMko.TgD2aabYuSHIN/jVOn5c8aRKOMMd6ZAHhy93beXUnserXHsK', '2022-10-14 11:00:20.742126');
 
 
 --
 -- Name: sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.sessions_id_seq', 3, true);
+SELECT pg_catalog.setval('public.sessions_id_seq', 8, true);
 
 
 --
 -- Name: urls_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.urls_id_seq', 8, true);
+SELECT pg_catalog.setval('public.urls_id_seq', 16, true);
 
 
 --
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 3, true);
+SELECT pg_catalog.setval('public.users_id_seq', 2, true);
 
 
 --
@@ -261,30 +256,6 @@ ALTER TABLE ONLY public.sessions
 
 ALTER TABLE ONLY public.urls
     ADD CONSTRAINT "urls_userId_fkey" FOREIGN KEY ("userId") REFERENCES public.users(id);
-
-
---
--- Name: SCHEMA heroku_ext; Type: ACL; Schema: -; Owner: -
---
-
-GRANT USAGE ON SCHEMA heroku_ext TO lfpwfstvftnwwt;
-
-
---
--- Name: SCHEMA public; Type: ACL; Schema: -; Owner: -
---
-
-REVOKE ALL ON SCHEMA public FROM postgres;
-REVOKE ALL ON SCHEMA public FROM PUBLIC;
-GRANT ALL ON SCHEMA public TO lfpwfstvftnwwt;
-GRANT ALL ON SCHEMA public TO PUBLIC;
-
-
---
--- Name: LANGUAGE plpgsql; Type: ACL; Schema: -; Owner: -
---
-
-GRANT ALL ON LANGUAGE plpgsql TO lfpwfstvftnwwt;
 
 
 --
